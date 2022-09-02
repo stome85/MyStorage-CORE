@@ -23,7 +23,7 @@ class Product(models.Model):
         on_delete=models.CASCADE
     )
     description = models.CharField(
-        max_length=30,
+        max_length=250,
         blank=False,
         null=False
     )
