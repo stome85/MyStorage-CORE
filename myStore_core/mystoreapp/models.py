@@ -23,20 +23,21 @@ class Product(models.Model):
         on_delete=models.CASCADE
     )
     description = models.CharField(
-        max_length=30,
+        max_length=250,
         blank=False,
         null=False
     )
     price = models.FloatField(
+        blank=False,
+        null=False
     )
     amount = models.IntegerField(
         blank=False,
         null=False
     )
-    image_path = models.CharField(
-        max_length=30,
-        blank=False,
-        null=False
+    image = models.CharField(
+        max_length=50,
+        blank=True
     )
 
     def __str__(self):

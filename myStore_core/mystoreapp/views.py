@@ -14,7 +14,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     filter_class = filters.CategoryFilter
 
 
-class FindProductByCategory(generics.ListAPIView):
+class ListProductByCategory(generics.ListAPIView):
     def get_queryset(self):
         return models.Product.objects.filter(category=self.kwargs['category'])
     serializer_class = serializers.ProductSerializer
