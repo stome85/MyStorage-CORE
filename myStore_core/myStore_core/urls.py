@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from mystoreapp.views import ProductViewSet, SaleViewSet, ItemSoldViewSet, CategoryViewSet, ListProductByCategory
+from mystoreapp.views import ProductViewSet, SaleViewSet, ItemSoldViewSet, CategoryViewSet, ListProductByCategory, SearchCategory
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -28,5 +28,6 @@ router.register('items-sold', ItemSoldViewSet, basename='Items-sold')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('products/category/<int:category>', ListProductByCategory.as_view())
+    path('products/category/<int:category>', ListProductByCategory.as_view()),
+    path('categories/search/<name>', SearchCategory.as_view())
 ]

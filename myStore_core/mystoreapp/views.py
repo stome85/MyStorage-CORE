@@ -17,7 +17,15 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class ListProductByCategory(generics.ListAPIView):
     def get_queryset(self):
         return models.Product.objects.filter(category=self.kwargs['category'])
+
     serializer_class = serializers.ProductSerializer
+
+
+class SearchCategory(generics.ListAPIView):
+    def get_queryset(self):
+        return models.Category.objects.filter(name__icontains=self.kwargs['name'])
+
+    serializer_class = serializers.CategorySerializer
 
 
 class SaleViewSet(viewsets.ModelViewSet):
